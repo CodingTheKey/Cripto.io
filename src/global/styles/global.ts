@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, styled } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body { 
-    background-color: ${({ theme }) => theme.colors.gray_900};
+    background-color: ${({ theme }) => theme.colors.gray_700};
     color: ${({ theme }) => theme.colors.white};
   }
 
@@ -35,6 +35,7 @@ export const GlobalStyle = createGlobalStyle`
   ul {
     list-style: none;
   }
+
 
   ::-webkit-scrollbar {
     width: 5px;
