@@ -1,10 +1,12 @@
+import { useEffect } from 'react'
+import { io } from 'socket.io-client'
 import { Container, Content, Footer, Header } from './styled'
 
 import Chart from 'react-apexcharts'
 
 const options = {
   yaxis: {
-    show: false, // Oculta os valores do eixo Y (à esquerda)
+    show: false,
   },
   chart: {
     toolbar: {
@@ -38,7 +40,7 @@ const options = {
   fill: {
     opacity: 0.3,
     type: 'gradient',
-    colors: ['#0BC5EA'],
+    colors: ['#E25858'],
     gradient: {
       shade: 'dark',
       opacityFrom: 0.7,
@@ -48,7 +50,7 @@ const options = {
   theme: {
     monochrome: {
       enabled: true,
-      color: '#0BC5EA',
+      color: '#E25858',
       shadeTo: 'light',
       shadeIntensity: 0.65,
     },
@@ -61,8 +63,15 @@ const series = [
     data: [156, 138, 87, 45, 180, 101, 150],
   },
 ]
+const socket = io('http://18.217.111.0:3000')
 
 export function CryptoCard() {
+  useEffect(() => {
+    socket.on('charts', (message) => {
+      console.log(message)
+    })
+  }, [])
+
   return (
     <Container>
       <Header>
@@ -79,9 +88,11 @@ export function CryptoCard() {
 
       <Content>
         <strong>R$ 8,229,80</strong>
+
+        <u> -2.87%</u>
       </Content>
       <Footer>
-        <Chart options={options} series={series} type="line" height={150} />
+        <Chart options={options} series={series} type="area" height={140} />
       </Footer>
     </Container>
   )

@@ -11,8 +11,14 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 6px 16px;
+  padding: 6px 16px 0 16px;
   font-size: 1.5rem;
+
+  u {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.alert};
+  }
 `
 
 export const Header = styled.div`
@@ -36,4 +42,7 @@ export const Header = styled.div`
   }
 `
 
-export const Footer = styled.div``
+export const Footer = styled.div`
+  justify-content: flex-end;
+  margin-top: -1.5rem;
+`

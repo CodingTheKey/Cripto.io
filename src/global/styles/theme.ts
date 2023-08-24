@@ -11,6 +11,7 @@ export default {
     gray_700: '#121214',
 
     primary: '#EBA417',
+    alert: '#E25858',
   },
   fonts: {
     primary: 'Poppins',
